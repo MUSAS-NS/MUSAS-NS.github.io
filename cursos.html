@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="M-3-4-2025.ico">
+    <title>Cursos | Musas</title>
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html"><img width="150" height="100" src="musas.jpeg"></a>  
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="cursos.html" class="active">Cursos</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section-title">
+            <br><br><br><br><br><br>
+            <u><h2>Nuestros Cursos</h2></u>
+            <b><p>Aprende nuevas habilidades con nuestros cursos personalizados para destacarte en el mundo de la estética.</p></b>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="CursoUñas.jpeg" alt="Curso de manicura">
+                </div>
+                <div class="service-content">
+                    <h3>Curso de Manicura</h3>
+                    <p>Dominá las técnicas más avanzadas de manicura y pedicura con nuestros expertos.</p>
+                    <a href="curso_uñas.html" class="btn">Más información</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="TallerP&C.jpeg" alt="Curso de cejas">
+                </div>
+                <div class="service-content">
+                    <h3>Curso de Cejas</h3>
+                    <p>Aprendé técnicas para el estilismo de cejas y volvete toda una profesional.</p>
+                    <a href="curso_cejas.html" class="btn">Más información</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="CursoPesta.jpeg" alt="Curso de pestañas">
+                </div>
+                <div class="service-content">
+                    <h3>Curso de Pestañas</h3>
+                    <p>Especialízate en el rubro de las pestañas en nuestro taller, y volvete una <i>LASHITA</i>.</p>
+                    <a href="curso_pestañas.html" class="btn">Más información</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Uñas y peluquería Musas</h4>
+                    <p>Tu centro de estética de confianza, donde la belleza y el aprendizaje se encuentran.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="cursos.html" class="active">Cursos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Cursos</h4>
+                    <ul>
+                        <li><a href="curso_uñas.html">Curso de manicuría</a></li>
+                        <li><a href="curso_cejas.html">Curso de cejas</a></li>
+                        <li><a href="curso_pestañas.html">Curso de pestañas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Seguinos!</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/gxodnails/?locale=es_LA"><img src="https://cdn-icons-png.flaticon.com/512/59/59439.png"></a>
+                        <a href="https://www.instagram.com/musas.2018/"><img src="https://cdn-icons-png.flaticon.com/512/87/87390.png"></a>
+                        <a href="https://api.whatsapp.com/message/RRZB4UNMDGJVP1?autoload=1&app_absent=0"><img src="https://brandlogos.net/wp-content/uploads/2013/04/whatsapp-logo-symbol-vector.png"></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    📍 Pedro Larre 6170, Isidro Casanoa
+                    <br>
+                    📞 +54 9 11 3855-5254
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Mejorado: Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            
+            if (nav.style.display === 'flex') {
+                // Cerrar el menú
+                nav.style.display = 'none';
+                document.body.style.overflow = ''; // Restaurar el scroll del body
+            } else {
+                // Abrir el menú
+                nav.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevenir scroll del body cuando el menú está abierto
+            }
+        });
+    
+        // Mejorado: Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav ul').style.display = 'none';
+                    document.body.style.overflow = ''; // Restaurar el scroll del body
+                }
+            });
+        });
+    
+        // Smooth scrolling para enlaces de anclaje
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                
+                // Solo prevenir el comportamiento predeterminado si es un enlace de anclaje válido
+                if (targetId !== '#' && document.querySelector(targetId)) {
+                    e.preventDefault();
+                    
+                    const targetElement = document.querySelector(targetId);
+                    const headerOffset = 80; // Ajusta esto según la altura de tu header
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - headerOffset,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+
+</body>
+</html>
