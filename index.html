@@ -10,7 +10,7 @@
 
 <body>
     <!-- Header -->
-    <header>
+    <header id="main-header">
         <div class="container header-container">
             <a href="index.html"><img width="150" height="100" src="musas.jpeg"></a>  
             <nav>
@@ -48,29 +48,46 @@
                     <h3>Información de contacto</h3>
                     <div class="contact-details">
                         <div class="contact-item">
-                        <i>📍</i>
-                    <a href="https://www.google.com.ar/maps/@-34.6957534,-58.6044096,3a,75y,142.45h,90.27t/data=!3m7!1e1!3m5!1s2NN7nQHWmYBP1l6OyBUB0A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.265973248086965%26panoid%3D2NN7nQHWmYBP1l6OyBUB0A%26yaw%3D142.45459279429616!7i16384!8i8192?hl=es&entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"><p>42 José Bernaldes Polledo.</p></a>
+                            <i>📍</i>
+                            <a href="https://www.google.com.ar/maps/@-34.6957534,-58.6044096,3a,75y,142.45h,90.27t/data=!3m7!1e1!3m5!1s2NN7nQHWmYBP1l6OyBUB0A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.265973248086965%26panoid%3D2NN7nQHWmYBP1l6OyBUB0A%26yaw%3D142.45459279429616!7i16384!8i8192?hl=es&entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D">
+                                <p>42 José Bernaldes Polledo.</p>
+                            </a>
                         </div>
-                    <div class="contact-item">
-                    <i>📞</i>
-                <p>+54 9 11 3855-5254</p>
+                        <div class="contact-item">
+                            <i>📞</i>
+                            <p>+54 9 11 3855-5254</p>
                         </div>
-                    <div class="contact-item">
-                    <i>🕒</i>
-                <p>Mar-Sáb:10:30 - 20:00</p>
+                        <div class="contact-item">
+                            <i>🕒</i>
+                            <p>Mar-Sáb:10:30 - 20:00</p>
                         </div>
                     </div>
-                </div>
-                
+                </div>   
             </div>
         </div>
     </section>
- 
 
-
-<script>
+    <script>
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('nav ul');
+
+    let lastScrollTop = 0;
+const header = document.querySelector('header');
+
+window.addEventListener("scroll", function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Deslizando hacia abajo - Oculta el menú
+        header.style.top = "-100px";
+    } else {
+        // Deslizando hacia arriba - Muestra el menú
+        header.style.top = "5";
+    }
+    
+    lastScrollTop = currentScroll;
+});
+
 
     // Toggle del menú
     menuBtn.addEventListener('click', function (e) {
@@ -120,11 +137,6 @@
     });
 </script>
 
-
-
-
-
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -140,7 +152,6 @@
                         <li><a href="servicios.html">Servicios</a></li>
                         <li><a href="nosotros.html">Nosotros</a></li>
                         <li><a href="cursos.html">Cursos</a></li>
-
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -154,14 +165,13 @@
                 <div class="footer-col">
                     <h4>Seguinos!</h4>
                     <div class="social-links">
-                        <a href=https://www.facebook.com/gxodnails/?locale=es_LA><img src="https://cdn-icons-png.flaticon.com/512/59/59439.png"></a>
+                        <a href="https://www.facebook.com/gxodnails/?locale=es_LA"><img src="https://cdn-icons-png.flaticon.com/512/59/59439.png"></a>
                         <a href="https://www.instagram.com/musas.2018/"><img src="https://cdn-icons-png.flaticon.com/512/87/87390.png"></a>
-                        <a href="https://api.whatsapp.com/message/RRZB4UNMDGJVP1?autoload=1&app_absent=0"><img src="https://brandlogos.net/wp-content/uploads/2013/04/whatsapp-logo-symbol-vector.png"</a>
+                        <a href="https://api.whatsapp.com/message/RRZB4UNMDGJVP1?autoload=1&app_absent=0"><img src="https://brandlogos.net/wp-content/uploads/2013/04/whatsapp-logo-symbol-vector.png"></a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
 </body>
 </html>

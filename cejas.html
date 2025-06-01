@@ -145,6 +145,24 @@
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('nav ul');
 
+    let lastScrollTop = 0;
+const header = document.querySelector('header');
+
+window.addEventListener("scroll", function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Deslizando hacia abajo - Oculta el menú
+        header.style.top = "-100px";
+    } else {
+        // Deslizando hacia arriba - Muestra el menú
+        header.style.top = "5";
+    }
+    
+    lastScrollTop = currentScroll;
+});
+
+
     // Toggle del menú
     menuBtn.addEventListener('click', function (e) {
         e.stopPropagation(); // Evita que el click se propague al documento
@@ -192,6 +210,7 @@
         });
     });
 </script>
+
 
 </body>
 </html>
