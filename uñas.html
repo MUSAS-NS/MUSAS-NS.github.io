@@ -28,7 +28,7 @@
     <div class="container">
         <div class="section-title">
             <br><br><br><br><br><br>
-            <u><h2>Diseños de Uñas</h2></u>
+        <img src="NOMBRES/Dise_uñas.png" alt="Diseños de uñas">
         <b><p>Descubre nuestra colección de diseños exclusivos, creados para realzar la belleza y el estilo único de cada cliente.</p></b>
         </div>
         
@@ -114,7 +114,8 @@
 
                 <div class="footer-col">
                     <h4>Contacto</h4>
-                    📍 Pedro Larre 6170, Isidro Casanoa
+                    <i>📍</i>
+                    <a href="https://www.google.com.ar/maps/@-34.6957534,-58.6044096,3a,75y,142.45h,90.27t/data=!3m7!1e1!3m5!1s2NN7nQHWmYBP1l6OyBUB0A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.265973248086965%26panoid%3D2NN7nQHWmYBP1l6OyBUB0A%26yaw%3D142.45459279429616!7i16384!8i8192?hl=es&entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"><p>42 José Bernaldes Polledo.</p></a>
                     <br>
                     📞 +54 9 11 3855-5254
                 </div>
@@ -125,51 +126,56 @@
 
 
     <script>
-        // Mejorado: Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            const nav = document.querySelector('nav ul');
-            
-            if (nav.style.display === 'flex') {
-                // Cerrar el menú
-                nav.style.display = 'none';
-                document.body.style.overflow = ''; // Restaurar el scroll del body
-            } else {
-                // Abrir el menú
-                nav.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Prevenir scroll del body cuando el menú está abierto
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('nav ul');
+
+    // Toggle del menú
+    menuBtn.addEventListener('click', function (e) {
+        e.stopPropagation(); // Evita que el click se propague al documento
+        const isOpen = navMenu.style.display === 'flex';
+
+        navMenu.style.display = isOpen ? 'none' : 'flex';
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+    });
+
+    // Cerrar el menú al hacer clic en un enlace
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 768) {
+                navMenu.style.display = 'none';
+                document.body.style.overflow = '';
             }
         });
-    
-        // Mejorado: Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    document.querySelector('nav ul').style.display = 'none';
-                    document.body.style.overflow = ''; // Restaurar el scroll del body
-                }
-            });
+    });
+
+    // Cerrar el menú si se hace clic fuera de él
+    document.addEventListener('click', function (e) {
+        const isClickInsideMenu = navMenu.contains(e.target);
+        const isClickOnBtn = menuBtn.contains(e.target);
+
+        if (!isClickInsideMenu && !isClickOnBtn && window.innerWidth <= 768) {
+            navMenu.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Smooth scrolling para enlaces de anclaje
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId !== '#' && document.querySelector(targetId)) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                const headerOffset = 80;
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - headerOffset,
+                    behavior: 'smooth'
+                });
+            }
         });
-    
-        // Smooth scrolling para enlaces de anclaje
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                
-                // Solo prevenir el comportamiento predeterminado si es un enlace de anclaje válido
-                if (targetId !== '#' && document.querySelector(targetId)) {
-                    e.preventDefault();
-                    
-                    const targetElement = document.querySelector(targetId);
-                    const headerOffset = 80; // Ajusta esto según la altura de tu header
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - headerOffset,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    });
+</script>
 
 
 </body>

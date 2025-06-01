@@ -5,11 +5,11 @@
     box-sizing: border-box;
 }
 
-
 body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: #333;
+    background-color: #f5f5dc;
 }
 
 a {
@@ -30,7 +30,7 @@ img {
 .btn {
     display: inline-block;
     padding: 12px 30px;
-    background-color: #fd73eb;
+    background-color: #5C4033;
     color: white;
     border: none;
     border-radius: 30px;
@@ -38,11 +38,11 @@ img {
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease;  
 }
 
 .btn:hover {
-    background-color: #fd73eb;
+    background-color: #5C4033;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -50,7 +50,8 @@ img {
 /* Header */
 header {
     padding: 20px 0;
-    background-color: white;
+    background-color: #30211b;
+    color: #f5f5dc;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
@@ -67,11 +68,11 @@ header {
 .logo {
     font-size: 24px;
     font-weight: 700;
-    color: #fd73eb;
+    color: #f5f5dc;
 }
 
 .logo span {
-    color: goldenrod;
+    color: #d2b48c;
 }
 
 nav ul {
@@ -89,11 +90,12 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #fd73eb;
+    color: #d2b48c;
 }
 
 /* Mobile menu */
 .mobile-menu-btn {
+    color: #f5f5dc;
     display: none;
     background: none;
     border: none;
@@ -105,7 +107,7 @@ nav ul li a:hover {
 /* Hero section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(collage.jpeg) center/cover no-repeat;
+    background: linear-gradient(rgba(245, 245, 220, 0.8), rgba(245, 245, 220, 0.8)), url(collage.jpeg) center/cover no-repeat;
     display: flex;
     align-items: center;
     text-align: center;
@@ -132,7 +134,7 @@ nav ul li a:hover {
 /* Services section */
 .services {
     padding: 100px 0;
-    background-color: #f9f9f9;
+    background-color: #f5f5dc;
 }
 
 .section-title {
@@ -142,7 +144,7 @@ nav ul li a:hover {
 
 .section-title h2 {
     font-size: 36px;
-    color: #333;
+    color: #5C4033;
     margin-bottom: 15px;
 }
 
@@ -159,7 +161,7 @@ nav ul li a:hover {
 }
 
 .service-card {
-    background-color: white;
+    background-color: #fff8dc;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -194,7 +196,7 @@ nav ul li a:hover {
 .service-content h3 {
     font-size: 22px;
     margin-bottom: 15px;
-    color: #333;
+    color: #5C4033;
 }
 
 .service-content p {
@@ -227,14 +229,13 @@ nav ul li a:hover {
 .about-content h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #333;
+    color: #5C4033;
 }
 
 .about-content p {
     color: #666;
     margin-bottom: 20px;
 }
-
 
 /* Contact section */
 .contact {
@@ -245,13 +246,12 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 50px;
-   
 }
 
 .contact-info h3 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #333;
+    color: #5C4033;
 }
 
 .contact-details {
@@ -265,14 +265,14 @@ nav ul li a:hover {
 
 .contact-item i {
     margin-right: 15px;
-    color: #fd73eb;
+    color: #5C4033;
     font-size: 20px;
 }
 
 .contact-form h3 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #333;
+    color: #5C4033;
 }
 
 .form-group {
@@ -295,8 +295,8 @@ textarea.form-control {
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #5C4033;
+    color: #f5f5dc;
     padding: 50px 0 20px;
 }
 
@@ -321,7 +321,7 @@ footer {
     bottom: 0;
     width: 50px;
     height: 2px;
-    background-color: #fd73eb;
+    background-color: #f5f5dc;
 }
 
 .footer-col ul {
@@ -338,7 +338,7 @@ footer {
 }
 
 .footer-col ul li a:hover {
-    color: #fd73eb;
+    color: #f5f5dc;
     padding-left: 5px;
 }
 
@@ -351,73 +351,70 @@ footer {
     display: inline-block;
     width: 40px;
     height: 40px;
-    background-color: #444;
+    background-color: #3e2b23;
     border-radius: 50%;
     text-align: center;
     line-height: 40px;
     transition: all 0.3s ease;
+    color: white;
 }
 
 .social-links a:hover {
-    background-color: #fd73eb;
+    background-color: #8b5a2b;
     transform: translateY(-3px);
 }
 
-
 /* Responsive styles */
 @media (max-width: 768px) {
-    /* Ajustes para el header en móvil */
     header {
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
     }
-    
-    /* Ajustes para el menú de navegación en móvil */
+
     nav ul {
         display: none;
         flex-direction: column;
         position: fixed;
-        top: 70px; /* Ajusta esto según la altura de tu header */
+        top: 70px;
         left: 0;
         width: 100%;
         height: auto;
-        background-color: white;
+        background-color: #5C4033;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         padding: 20px 0;
         z-index: 999;
-        max-height: calc(100vh - 70px); /* Altura máxima para evitar que se corte */
-        overflow-y: auto; /* Permite scroll si hay muchas opciones */
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
     }
-    
+
     nav ul li {
-        margin: 15px 0; /* Más espacio entre elementos del menú */
+        margin: 15px 0;
         text-align: center;
         width: 100%;
     }
-    
+
     nav ul li a {
         display: block;
         padding: 10px 0;
-        font-size: 18px; /* Texto más grande para mejor legibilidad */
+        font-size: 18px;
+        color: #f5f5dc;
     }
-    
+
     .mobile-menu-btn {
         display: block;
     }
-    
-    /* Ajustes para el contenido principal para evitar que quede debajo del header */
+
     .hero, section, .container {
-        margin-top: 80px; /* Ajusta esto según la altura de tu header */
+        margin-top: 80px;
     }
-    
-    /* Solo aplicar el margen superior al primer elemento después del header */
+
     body > section:first-of-type,
     body > .container:first-of-type {
         margin-top: 80px;
     }
-    
+
     body > section:not(:first-of-type),
     body > .container:not(:first-of-type) {
         margin-top: 0;
