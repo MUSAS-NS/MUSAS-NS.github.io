@@ -11,7 +11,7 @@
     
     <header>
         <div class="container header-container">
-            <a href="index.html"><img width="150" height="100" src="musas.jpeg"></a>  
+            <a href="index.html"><img width="130" height="140" src="musas.jpeg"></a>   
             <nav>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
@@ -44,12 +44,11 @@
 
             <div class="service-card">
                 <div class="service-img">
-                    <img src="ServicioP&M/Portada.jpeg" alt="Masajes corporales">
+                    <img src="inhabilitado.jpeg"  alt="Masajes corporales">
                 </div>
                 <div class="service-content">
-                    <h3>Masajes Corporales y podología</h3>
-                    <b><p>Relajate y reducí el estrés acumulado de toda la semana con nuestros masajes terapéuticos y de relajación, a cargo de nuestra profesional; Lourdes.</p></b>
-                    <a href="masajes_y_podologia.html" class="btn">Ver más</a>
+                    <s><h3>Masajes Corporales y podología</h3>
+                    <b><p>Relajate y reducí el estrés acumulado de toda la semana con nuestros masajes terapéuticos y de relajación, a cargo de nuestra profesional.</p></b></s>
                 </div>
             </div>
             <div class="service-card">
@@ -139,9 +138,9 @@ window.addEventListener("scroll", function() {
         header.style.top = "-100px";
     } else {
         // Deslizando hacia arriba - Muestra el menú
-        header.style.top = "5";
+        header.style.top = "0px"; // ← agregamos "px"
     }
-    
+
     lastScrollTop = currentScroll;
 });
 

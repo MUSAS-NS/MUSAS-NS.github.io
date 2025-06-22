@@ -11,7 +11,7 @@
 
     <header>
         <div class="container header-container">
-            <a href="index.html"><img width="150" height="100" src="musas.jpeg"></a>  
+            <a href="index.html"><img width="130" height="140" src="musas.jpeg"></a>   
             <nav>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
@@ -70,16 +70,6 @@
                 <div class="service-content">
                     <h3>Tratamientos corporales</h3>
                  <b><p>Relajá, rejuvenecé y tonificá tu cuerpo con los mejores tratamientos personalizados.</p></b>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="ServicioP&M/Plasma.jpeg" alt="Plasma rico en plaquetas">
-                </div>
-                <div class="service-content">
-                        <s><h3>Plasma rico en plaquetas</h3>
-                 <b><p>Estimulá la regeneración y rejuvenecá tu piel con tratamientos avanzados.</p></b></s>
-                 <b><p>SERVICIO INHABILITADO POR EL MOMENTO.</p></b>
                 </div>
             </div>
         </div>
@@ -148,9 +138,9 @@ window.addEventListener("scroll", function() {
         header.style.top = "-100px";
     } else {
         // Deslizando hacia arriba - Muestra el menú
-        header.style.top = "5";
+        header.style.top = "0px"; // ← agregamos "px"
     }
-    
+
     lastScrollTop = currentScroll;
 });
 

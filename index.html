@@ -12,7 +12,7 @@
     <!-- Header -->
     <header id="main-header">
         <div class="container header-container">
-            <a href="index.html"><img width="150" height="100" src="musas.jpeg"></a>  
+            <a href="index.html"><img width="130" height="140" src="musas.jpeg"></a>  
             <nav>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
@@ -71,7 +71,7 @@
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('nav ul');
 
-    let lastScrollTop = 0;
+    let lastScrollTop = 5;
 const header = document.querySelector('header');
 
 window.addEventListener("scroll", function() {
@@ -82,11 +82,12 @@ window.addEventListener("scroll", function() {
         header.style.top = "-100px";
     } else {
         // Deslizando hacia arriba - Muestra el menú
-        header.style.top = "5";
+        header.style.top = "0px"; // ← agregamos "px"
     }
-    
+
     lastScrollTop = currentScroll;
 });
+
 
 
     // Toggle del menú

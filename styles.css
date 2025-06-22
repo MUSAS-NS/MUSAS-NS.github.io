@@ -420,3 +420,93 @@ footer {
         margin-top: 0;
     }
 }
+
+.carousel-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 15px;
+      padding: 10px;
+      width: 90%;
+    }
+
+    .carousel img {
+      width: auto;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.05);
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color:#8b5a2b;
+      border: none;
+      color:#5C4033;
+      padding: 12px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 50%;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .carousel img {
+        height: 400px;
+      }
+    }
+
+
+    /* Barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 12px;               /* ancho de la barra vertical */
+  height: 12px;              /* alto de la barra horizontal */
+}
+
+/* Fondo de la barra */
+::-webkit-scrollbar-track {
+  background: #8b5a2b;       /* color del fondo de la barra */
+  border-radius: 10px;
+}
+
+/* El pulgar que se desplaza */
+::-webkit-scrollbar-thumb {
+  background-color:#5C4033;    /* color de la barra de desplazamiento */
+  border-radius: 10px;
+  border: 3px solid #f0f0f0; /* espacio alrededor del pulgar */
+}
+
+/* Al pasar el mouse por encima */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #38271f;
+}
+
+
+
