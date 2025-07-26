@@ -9,6 +9,23 @@
 </head>
 
 <body>
+
+    <!-- POP-UP con carrusel -->
+    <div id="popup-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); display: none; justify-content: center; align-items: center; z-index: 9999;">
+        <div id="popup-content" style="background: #fff8f1; border-radius: 15px; padding: 20px; max-width: 600px; width: 90%; position: relative; box-shadow: 0 5px 20px rgba(0,0,0,0.3);">
+            <button onclick="closePopup()" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+            <h2 style="color: #5e4033; font-family: 'Georgia', serif; text-align: center;">¡Bienvenida a Musas!</h2>
+            <p style="text-align: center; font-weight: bold;">Tenemos nuevo servicio, <b>DEPILACIÓN DEFINITIVA</b>; trabajamos con maquinas Soprano Ice tanto su versión base (original) como la mejorada (platinum), una de las mejores del mercado actualmente. </p><br>
+            <b><p>¡Para más Información bajá al final de todo en nuestra página de inicio!</p></b><br>
+            <center><p><b>Que tengas buena visita en la página ♡</b></p></center>
+            <!-- Carrusel -->
+            <div style="position: relative; overflow: hidden; border-radius: 10px; margin-top: 20px;">
+                <img id="carousel-img" src="imagen_infor.jpeg" style="width: 100%; height: auto; transition: opacity 0.5s ease;">
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header id="main-header">
         <div class="container header-container">
@@ -65,41 +82,102 @@
                 </div>   
             </div>
         </div>
-    </section>
+<img src="NOMBRES/como_tecno.png" >
+<div class="footer-col" style="margin-top: 30px;">
+    
+    <div style="
+        display: flex;
+        justify-content: flex-start;
+        gap: 25px;
+        padding-left: 50px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        flex-wrap: wrap;
+    ">
+        <video controls style="
+            width: 220px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            background-color: #fff;
+        ">
+            <source src="ICE original.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+        </video>
 
+        <video controls style="
+            width: 220px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            background-color: #fff;
+        ">
+            <source src="video1.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+        </video>
+    </div>
+</div>
+
+    </section>
+    
+
+    <!-- JavaScript -->
     <script>
+   // Mostrar pop-up una sola vez por sesión
+window.addEventListener('DOMContentLoaded', () => {
+    if (!sessionStorage.getItem('popupShown')) {
+        document.getElementById('popup-overlay').style.display = 'flex';
+        sessionStorage.setItem('popupShown', 'true');
+    }
+
+    // Carrusel de imágenes
+    const images = [
+        "soprano_ice.jpeg",
+        "soprano_ice platinum.jpeg",
+        "imagen_infor.jpeg"
+    ];
+    let index = 0;
+    const imgElement = document.getElementById('carousel-img');
+
+    setInterval(() => {
+        index = (index + 1) % images.length;
+        imgElement.style.opacity = 0;
+        setTimeout(() => {
+            imgElement.src = images[index];
+            imgElement.style.opacity = 1;
+        }, 300);
+    }, 3000);
+});
+
+function closePopup() {
+    document.getElementById('popup-overlay').style.display = 'none';
+}
+
+
+    // Menú móvil
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('nav ul');
 
     let lastScrollTop = 5;
-const header = document.querySelector('header');
+    const header = document.querySelector('header');
 
-window.addEventListener("scroll", function() {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    window.addEventListener("scroll", function () {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScrollTop) {
+            header.style.top = "-100px";
+        } else {
+            header.style.top = "0px";
+        }
+        lastScrollTop = currentScroll;
+    });
 
-    if (currentScroll > lastScrollTop) {
-        // Deslizando hacia abajo - Oculta el menú
-        header.style.top = "-100px";
-    } else {
-        // Deslizando hacia arriba - Muestra el menú
-        header.style.top = "0px"; // ← agregamos "px"
-    }
-
-    lastScrollTop = currentScroll;
-});
-
-
-
-    // Toggle del menú
     menuBtn.addEventListener('click', function (e) {
-        e.stopPropagation(); // Evita que el click se propague al documento
+        e.stopPropagation();
         const isOpen = navMenu.style.display === 'flex';
-
         navMenu.style.display = isOpen ? 'none' : 'flex';
         document.body.style.overflow = isOpen ? '' : 'hidden';
     });
 
-    // Cerrar el menú al hacer clic en un enlace
     document.querySelectorAll('nav ul li a').forEach(link => {
         link.addEventListener('click', function () {
             if (window.innerWidth <= 768) {
@@ -109,18 +187,15 @@ window.addEventListener("scroll", function() {
         });
     });
 
-    // Cerrar el menú si se hace clic fuera de él
     document.addEventListener('click', function (e) {
         const isClickInsideMenu = navMenu.contains(e.target);
         const isClickOnBtn = menuBtn.contains(e.target);
-
         if (!isClickInsideMenu && !isClickOnBtn && window.innerWidth <= 768) {
             navMenu.style.display = 'none';
             document.body.style.overflow = '';
         }
     });
 
-    // Smooth scrolling para enlaces de anclaje
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -128,7 +203,6 @@ window.addEventListener("scroll", function() {
                 e.preventDefault();
                 const targetElement = document.querySelector(targetId);
                 const headerOffset = 80;
-
                 window.scrollTo({
                     top: targetElement.offsetTop - headerOffset,
                     behavior: 'smooth'
@@ -136,7 +210,8 @@ window.addEventListener("scroll", function() {
             }
         });
     });
-</script>
+    </script>
+    
 
     <!-- Footer -->
     <footer>
